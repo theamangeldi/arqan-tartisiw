@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 250" width="500" height="250">
+  <rect width="500" height="250" fill="#0099b5"/>
+  <rect y="80" width="500" height="5" fill="#d91023"/>
+  <rect y="85" width="500" height="8" fill="#ffffff"/>
+  <rect y="93" width="500" height="64" fill="#ffd100"/>
+  <rect y="157" width="500" height="8" fill="#ffffff"/>
+  <rect y="165" width="500" height="5" fill="#d91023"/>
+  <rect y="170" width="500" height="80" fill="#1eb53a"/>
+  <!-- Crescent -->
+  <path d="M 68 22 A 22 22 0 1 0 68 62 A 18 18 0 1 1 68 22 Z" fill="#ffffff"/>
+  <!-- 5 Stars -->
+  <g fill="#ffffff">
+    <!-- Star helper: polygon 5-point -->
+    <polygon points="102,28 104,34 110,34 105,38 107,44 102,40 97,44 99,38 94,34 100,34"/>
+    <polygon points="120,28 122,34 128,34 123,38 125,44 120,40 115,44 117,38 112,34 118,34"/>
+    <polygon points="138,28 140,34 146,34 141,38 143,44 138,40 133,44 135,38 130,34 136,34"/>
+    <polygon points="156,28 158,34 164,34 159,38 161,44 156,40 151,44 153,38 148,34 154,34"/>
+    <polygon points="174,28 176,34 182,34 177,38 179,44 174,40 169,44 171,38 166,34 172,34"/>
+  </g>
+</svg>

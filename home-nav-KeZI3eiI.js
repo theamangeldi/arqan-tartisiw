@@ -1,0 +1,1 @@
+function e(e){let t=e||`/`;try{let e=document.referrer;if(e&&new URL(e).origin===window.location.origin&&window.history.length>1){window.history.back();return}}catch{}window.location.assign(t)}export{e as t};

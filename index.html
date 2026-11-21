@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="kaa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#20b8e7">
+    <meta name="csrf-token" content="">
+    <meta name="color-scheme" content="light">
+    <title id="pageTitle">Arqan tartısıw: Matematika</title>
+    <meta name="description" content="Arifmetikalıq ameller, logikalıq shınıǵıwlar hám sanlardı salıstırıw boyınsha oyın.">
+    <link rel="icon" type="image/svg+xml" href="images/icon-b.svg">
+    <meta name="theme-color" content="#20b8e7">
+    <meta name="quiz-mathjax-src" content="vendor/mathjax/MathJax.js?config=AM_CHTML-full">
+    <script>
+        window.MathJax = window.MathJax || {
+            jax: ['input/AsciiMath', 'output/CommonHTML'],
+            extensions: ['asciimath2jax.js'],
+            asciimath2jax: { delimiters: [['`', '`']] },
+            showMathMenu: false,
+            messageStyle: 'none',
+        };
+    </script>
+    <script src="vendor/mathjax/MathJax.js?config=AM_CHTML-full" async></script>
+    <script>
+        (function () {
+            var forced = "light";
+            var saved = null;
+            try {
+                saved = localStorage.getItem('edugames:theme');
+            } catch (error) {
+                saved = null;
+            }
+            var mode = saved === 'dark' || saved === 'light' || saved === 'system' ? saved : 'system';
+            var theme = mode === 'system' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : mode;
+            if (forced) {
+                mode = forced;
+                theme = forced;
+                document.documentElement.classList.add('light');
+            }
+            var body = document.body;
+            document.documentElement.dataset.themeMode = mode;
+            document.documentElement.style.colorScheme = theme;
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+                body && body.classList.add('dark', 'bg-gray-900');
+            } else {
+                document.documentElement.classList.remove('dark');
+                body && body.classList.remove('dark', 'bg-gray-900');
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="tug-of-war-C15oBKWx.css" />
+    <style>
+    /* Full-bleed backdrop for standalone game pages */
+    html[data-game-bg-scope="page"][data-game-bg-active],
+    html[data-game-bg-scope="page"][data-game-bg-active] body {
+        background: transparent;
+    }
+    html[data-game-bg-scope="page"][data-game-bg-active]::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        background-image: var(--game-bg-image, none);
+        background-size: cover;
+        background-position: var(--game-bg-position, center);
+        background-repeat: no-repeat;
+    }
+    html[data-game-bg-scope="page"][data-game-bg-active]::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background: var(--game-bg-wash, transparent);
+    }
+    html[data-game-bg="classroom"] {
+        --game-bg-image: url('images/29b63230-6348-5dfe-9a39-1e0c3122e1cb.webp');
+        --game-bg-wash: rgba(255, 255, 255, 0.36);
+        --game-bg-position: center;
+    }
+    html.dark[data-game-bg="classroom"] {
+        --game-bg-image: url('images/29b63230-6348-5dfe-9a39-1e0c3122e1cb.webp');
+        --game-bg-wash: rgba(15, 23, 42, 0.6);
+    }
+    html[data-game-bg="sky"] {
+        --game-bg-image: linear-gradient(135deg, #dbe7ff 0%, #eef2ff 50%, #d7e9ff 100%);
+        --game-bg-wash: rgba(255, 255, 255, 0.3);
+        --game-bg-position: center;
+    }
+    html.dark[data-game-bg="sky"] {
+        --game-bg-image: linear-gradient(135deg, #0a1122 0%, #101d38 55%, #0b1526 100%);
+        --game-bg-wash: rgba(15, 23, 42, 0.42);
+    }
+    html[data-game-bg="mint"] {
+        --game-bg-image: linear-gradient(135deg, #d8f3e3 0%, #eafaf0 50%, #d6f0ea 100%);
+        --game-bg-wash: rgba(255, 255, 255, 0.3);
+        --game-bg-position: center;
+    }
+    html.dark[data-game-bg="mint"] {
+        --game-bg-image: linear-gradient(135deg, #07160f 0%, #0e2419 55%, #0a1c16 100%);
+        --game-bg-wash: rgba(15, 23, 42, 0.42);
+    }
+    html[data-game-bg="sunrise"] {
+        --game-bg-image: linear-gradient(135deg, #ffe6d6 0%, #fff2e8 50%, #ffe0e6 100%);
+        --game-bg-wash: rgba(255, 255, 255, 0.32);
+        --game-bg-position: center;
+    }
+    html.dark[data-game-bg="sunrise"] {
+        --game-bg-image: linear-gradient(135deg, #1a0f0c 0%, #2a1712 55%, #1e1113 100%);
+        --game-bg-wash: rgba(15, 23, 42, 0.44);
+    }
+    html[data-game-bg="lavender"] {
+        --game-bg-image: linear-gradient(135deg, #e9e2ff 0%, #f3eeff 50%, #e6e0ff 100%);
+        --game-bg-wash: rgba(255, 255, 255, 0.3);
+        --game-bg-position: center;
+    }
+    html.dark[data-game-bg="lavender"] {
+        --game-bg-image: linear-gradient(135deg, #120e22 0%, #1d1638 55%, #140f26 100%);
+        --game-bg-wash: rgba(15, 23, 42, 0.42);
+    }
+    html[data-game-bg="slate"] {
+        --game-bg-image: linear-gradient(135deg, #eef1f6 0%, #f7f9fc 50%, #e9edf3 100%);
+        --game-bg-wash: rgba(255, 255, 255, 0.28);
+        --game-bg-position: center;
+    }
+    html.dark[data-game-bg="slate"] {
+        --game-bg-image: linear-gradient(135deg, #0b0f16 0%, #141a24 55%, #0d121b 100%);
+        --game-bg-wash: rgba(15, 23, 42, 0.4);
+    }
+    .game-bg-picker {
+        position: relative;
+        display: inline-flex;
+    }
+    .game-bg-picker .game-bg-trigger {
+        width: var(--game-bg-trigger-size, 38px);
+        height: var(--game-bg-trigger-size, 38px);
+        flex: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border-radius: var(--game-bg-trigger-radius, 12px);
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        background: rgba(255, 255, 255, 0.9);
+        color: #334155;
+        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06);
+        backdrop-filter: blur(10px);
+        cursor: pointer;
+        transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+    .game-bg-picker .game-bg-trigger:hover {
+        color: #465fff;
+        border-color: rgba(70, 95, 255, 0.3);
+    }
+    .game-bg-picker .game-bg-panel {
+        position: absolute;
+        z-index: 200;
+        width: min(232px, calc(100vw - 24px));
+        max-height: min(70dvh, 460px);
+        overflow-y: auto;
+        padding: 12px;
+        border-radius: 16px;
+        border: 1px solid rgba(15, 23, 42, 0.1);
+        background: #ffffff;
+        color: #101828;
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+    }
+    .game-bg-picker--up .game-bg-panel {
+        bottom: calc(100% + 8px);
+        inset-inline-start: 0;
+        inset-inline-end: auto;
+    }
+    .game-bg-panel__title {
+        margin: 0 0 10px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: #475467;
+    }
+    .game-bg-swatches {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+    .game-bg-picker .game-bg-swatch {
+        position: relative;
+        padding: 6px;
+        border-radius: 12px;
+        border: 1px solid rgba(15, 23, 42, 0.1);
+        background: rgba(255, 255, 255, 0.6);
+        cursor: pointer;
+        text-align: left;
+    }
+    .game-bg-picker .game-bg-swatch:hover {
+        border-color: rgba(70, 95, 255, 0.4);
+    }
+    .game-bg-picker .game-bg-swatch.is-selected {
+        border-color: #465fff;
+        box-shadow: 0 0 0 2px rgba(70, 95, 255, 0.25);
+    }
+    .game-bg-swatch__preview {
+        display: block;
+        height: 40px;
+        border-radius: 8px;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        background: var(--swatch, #f2f4f7);
+        background-size: cover;
+        background-position: center;
+    }
+    .game-bg-swatch__label {
+        font-size: 0.74rem;
+        font-weight: 600;
+        color: #344054;
+    }
+    .game-bg-swatch__check {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
+        align-items: center;
+        justify-content: center;
+        background: #465fff;
+        color: #ffffff;
+        display: none;
+    }
+    .game-bg-picker .game-bg-swatch.is-selected .game-bg-swatch__check {
+        display: inline-flex;
+    }
+    </style>
+    <style id="mobile-responsive-styles">
+    /* ========================================================
+       TELEFONLAR HÁM PLANSHEETLER USHIN TOLIQ MOSLASHTIRIW
+       ======================================================== */
+    *, *::before, *::after {
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+    html, body {
+        touch-action: manipulation;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+        overscroll-behavior: none;
+        -webkit-overscroll-behavior: none;
+    }
+
+    button, .key-btn, .quiz-btn, .time-btn, .operation-btn, .difficulty-btn, .primary-btn, .secondary-btn {
+        touch-action: manipulation;
+        user-select: none;
+        -webkit-user-select: none;
+        cursor: pointer;
+    }
+
+    /* Mobil ekranlar uchun umumiy qulayliklar */
+    @media (max-width: 900px), (max-height: 540px) {
+        .game-play-topbar {
+            --gpt-height: 46px !important;
+            height: 46px !important;
+            padding-inline: 8px !important;
+            gap: 6px !important;
+        }
+        .game-play-topbar__brand picture img {
+            height: 24px !important;
+            max-width: 120px !important;
+            width: auto !important;
+        }
+        .topbar-team__name {
+            font-size: 11px !important;
+            max-width: 75px !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            white-space: nowrap !important;
+        }
+        .score-badge {
+            font-size: 15px !important;
+            min-width: 28px !important;
+            height: 28px !important;
+            line-height: 28px !important;
+            padding: 0 6px !important;
+        }
+        .timer-display {
+            font-size: 14px !important;
+            padding: 4px 10px !important;
+            min-width: 58px !important;
+        }
+
+        .game-shell {
+            padding: 4px 6px 6px !important;
+            height: calc(100% - 46px) !important;
+        }
+
+        .view-controls {
+            bottom: 6px !important;
+            left: 6px !important;
+            transform: scale(0.75) !important;
+            transform-origin: bottom left !important;
+            z-index: 100 !important;
+            opacity: 0.8 !important;
+        }
+        .view-controls:hover, .view-controls:active {
+            opacity: 1 !important;
+        }
+        .tug-audio-trigger--game {
+            bottom: 6px !important;
+            right: 6px !important;
+            width: 40px !important;
+            height: 40px !important;
+            transform: scale(0.8) !important;
+            transform-origin: bottom right !important;
+            z-index: 100 !important;
+            opacity: 0.8 !important;
+        }
+        .tug-audio-trigger--game:hover, .tug-audio-trigger--game:active {
+            opacity: 1 !important;
+        }
+        .tug-audio-trigger--game .tug-audio-trigger__icon {
+            width: 32px !important;
+            height: 32px !important;
+            font-size: 13px !important;
+        }
+
+        .modal-content {
+            width: min(96vw, 520px) !important;
+            max-height: 94dvh !important;
+            padding: 16px 12px !important;
+            border-radius: 16px !important;
+        }
+        .start-modal {
+            padding: 14px 10px 18px !important;
+        }
+        .start-modal h2 {
+            font-size: 20px !important;
+            margin-bottom: 12px !important;
+        }
+        .step-time-grid, .step-options-grid {
+            gap: 8px !important;
+        }
+        .time-btn, .operation-btn, .difficulty-btn {
+            min-height: 46px !important;
+            padding: 8px !important;
+            font-size: 13px !important;
+        }
+        .modal-footer {
+            margin-top: 14px !important;
+            gap: 8px !important;
+        }
+        .modal-footer .primary-btn, .modal-footer .secondary-btn {
+            height: 44px !important;
+            font-size: 14px !important;
+        }
+    }
+
+    /* VERTIKAL (PORTRAIT) HOLAT: telefon tik ushlanganda */
+    @media (max-width: 680px) and (orientation: portrait), (max-width: 680px) and (aspect-ratio < 1) {
+        :root {
+            --board-max-width: 100% !important;
+            --board-max-height: 100% !important;
+        }
+        .game-board {
+            display: grid !important;
+            grid-template: "arena arena" 35fr "left right" 65fr / 1fr 1fr !important;
+            gap: 6px !important;
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+        }
+        .arena-container {
+            padding: 4px !important;
+            border-radius: 12px !important;
+        }
+        .calculator-panel {
+            padding: 0 !important;
+            border-radius: 12px !important;
+            gap: 4px !important;
+        }
+        .problem-display {
+            height: auto !important;
+            min-height: 48px !important;
+            margin: 4px 4px 0 !important;
+            padding: 4px 2px !important;
+            font-size: clamp(14px, 4.2vw, 20px) !important;
+            border-radius: 8px !important;
+        }
+        .math-answer-display {
+            height: 28px !important;
+            font-size: 16px !important;
+            margin: 2px 4px 0 !important;
+            padding: 2px 6px !important;
+            border-radius: 6px !important;
+        }
+        .math-keypad {
+            padding: 2px 4px 6px !important;
+            gap: 4px !important;
+        }
+        .key-btn {
+            min-height: 40px !important;
+            border-radius: 8px !important;
+            font-size: 16px !important;
+        }
+        .key-btn.is-active, .key-btn:active {
+            transform: scale(0.94) !important;
+            background: #e2e8f0 !important;
+        }
+    }
+
+    /* GORIZONTAL (LANDSCAPE) HOLAT: telefon yonbosh ushlanganda */
+    @media (max-height: 520px) and (orientation: landscape) {
+        :root {
+            --board-max-width: 100% !important;
+            --board-max-height: 100% !important;
+            --board-side-column: clamp(180px, 28vw, 250px) !important;
+        }
+        .game-play-topbar {
+            --gpt-height: 38px !important;
+            height: 38px !important;
+            padding-inline: 8px !important;
+        }
+        .game-shell {
+            height: calc(100% - 38px) !important;
+            padding: 4px 6px !important;
+        }
+        .game-board {
+            grid-template-columns: var(--board-side-column) 1fr var(--board-side-column) !important;
+            grid-template-areas: "left arena right" !important;
+            gap: 6px !important;
+            width: 100% !important;
+            height: 100% !important;
+        }
+        .problem-display {
+            min-height: 40px !important;
+            margin: 3px 3px 0 !important;
+            padding: 3px !important;
+            font-size: 14px !important;
+        }
+        .math-answer-display {
+            height: 26px !important;
+            margin: 2px 3px !important;
+            font-size: 14px !important;
+        }
+        .math-keypad {
+            padding: 2px 3px 3px !important;
+            gap: 3px !important;
+        }
+        .key-btn {
+            min-height: 32px !important;
+            font-size: 14px !important;
+        }
+        .modal-content {
+            max-height: 94dvh !important;
+            padding: 10px 14px !important;
+        }
+        .start-modal {
+            padding: 8px 10px !important;
+        }
+        .start-modal h2 {
+            font-size: 17px !important;
+            margin-bottom: 6px !important;
+        }
+        .time-btn, .operation-btn, .difficulty-btn {
+            min-height: 36px !important;
+            padding: 6px !important;
+        }
+    }
+    </style>
+    <script>
+    (function () {
+        var doc = document.documentElement;
+        var config = {
+            ids: ["plain","classroom","sky","mint","sunrise","lavender","slate"],
+            def: "plain",
+            scope: "page",
+        };
+        window.__GAME_BG__ = config;
+        doc.setAttribute('data-game-bg-scope', config.scope);
+        var id = null;
+        try {
+            id = localStorage.getItem('edugames:game:background');
+        } catch (error) { id = null; }
+        if (config.ids.indexOf(id) === -1) { id = config.def; }
+        doc.setAttribute('data-game-bg', id);
+        if (id !== 'plain') { doc.setAttribute('data-game-bg-active', ''); }
+    })();
+    </script>
+    <script>
+        window.__EDUGAMES_SECURITY__ = { enabled: false, threshold: 160 };
+        window.__GAME_CONFIG__ = {
+            questionsUrl: null,
+            homeUrl: "#",
+            playToken: "",
+            playTokenUrl: "",
+            startRoundUrl: "",
+            submitResultUrl: "",
+            roundTtlSeconds: 7200,
+            resultViewer: "",
+            previousResultViewers: [],
+            securityEnabled: false,
+            mode: "math",
+            demoSlug: "math",
+            feedbackSounds: {
+                correct: "true.a23e4c44.mp3",
+                wrong: "false.825338af.mp3",
+            },
+        };
+        window.__TUG_AUDIO_PANEL__ = {
+            storageKey: "edugames:tug-of-war:settings",
+            selectedField: "selectedAudioId",
+            defaultAudioId: "qaraqalpaq",
+            audioElementId: "backgroundMusic",
+            audios: [
+                { id: "qaraqalpaq", src: "qaraqalpaq_audio.mp3", label: "Aday kúyi (Berik Dáwenov)", description: "Arqan tartısıw ushın qızg'ın milliy kúy.", file: "qaraqalpaq_audio.mp3", accent: "#0284c7" },
+                { id: "energy", src: "audio-1.ac5bd093.mp3", label: "Ritm", description: "Belsendi raundlar ushın ritmli nama.", file: "audio-1.ac5bd093.mp3", accent: "#16a34a" }
+            ]
+        };
+        window.__TUG_I18N__ = {
+            "kaa": {
+                "modalTitle": "Komandalardı tayarlaw",
+                "stepTime": "Waqıt",
+                "stepOperations": "Ameller",
+                "stepDigits": "Sanlar",
+                "stepTeams": "Komandalar",
+                "timeSelectLabel": "Oyin waqtı",
+                "timeSelectHint": "1, 3, 5 yamasa 10 minutti saylań",
+                "time1Text": "1 minut",
+                "time3Text": "3 minut",
+                "time5Text": "5 minut",
+                "time10Text": "10 minut",
+                "timeInfiniteText": "Sheksiz",
+                "operationLabel": "Ameller",
+                "operationHint": "Bir yamasa bir neshe ameldi saylań",
+                "opAddText": "Qosıw",
+                "opSubText": "Alıw",
+                "opMulText": "Kóbeytiw",
+                "opDivText": "Bóliw",
+                "opCompareText": "Salıstırıw",
+                "digitSelectLabel": "Sanlardıń xanasın saylań",
+                "digitSelectHint": "Sorawlarda qollanılatuǵın sanlar neshe xanalı bolsın?",
+                "digit1Range": "0–9",
+                "digit2Range": "10–99",
+                "digit3Range": "100–999",
+                "digit1Text": "1 xanalı sanlar",
+                "digit2Text": "2 xanalı sanlar",
+                "digit3Text": "3 xanalı sanlar",
+                "team1Label": "1-komanda",
+                "team2Label": "2-komanda",
+                "teamPlaceholder": "Komanda atın kiritiń",
+                "startBtnText": "Baslaw",
+                "backBtnText": "Artqa",
+                "nextBtnText": "Keyingi",
+                "playAgainText": "Qaytadan oynaw",
+                "settingsBtnText": "Qayta sazlaw",
+                "homeAria": "Bas bet",
+                "setupStepsAria": "Sazlaw basqıshları",
+                "answerOptionsAria": "Juwap variantları",
+                "telegramAria": "Telegram",
+                "instagramAria": "Instagram",
+                "viewControlsAria": "Kórinis basqarıwları",
+                "soundControlsAria": "Dawıs basqarıwları",
+                "zoomControlsAria": "Masshtab basqarıwları",
+                "soundControlsLabel": "Dawıs basqarıwı",
+                "muteSound": "Dawıstı óshiriw",
+                "unmuteSound": "Dawıstı qosıw",
+                "volumeDown": "Dawıs páseytiw",
+                "volumeUp": "Dawıs kóteriw",
+                "zoomOut": "Kishireytiw",
+                "zoomIn": "Úlkeytiw",
+                "fullscreen": "Tolıq ekran",
+                "enterFullscreen": "Tolıq ekranǵa ótiw",
+                "exitFullscreen": "Tolıq ekrandan shıǵıw",
+                "leftTeamDefault": "Kók komanda",
+                "rightTeamDefault": "Qızıl komanda",
+                "gameOverLabel": "Oyin juwmaqlandı",
+                "winnerMessage": "Jeńimpaz boldı!",
+                "drawTitle": "TEŃ",
+                "drawMessage": "Oyin teń juwmaqlandı!",
+                "noActionTitle": "HÁREKET BOLMADI",
+                "noActionMessage": "Waqıt tawısıldı. Oyin teń juwmaqlandı.",
+                "winnerStatus": "Jeńimpaz",
+                "drawStatus": "Teń",
+                "scoreLabel": "Esap",
+                "correctAnswersLabel": "durıs juwap",
+                "timeLabel": "waqıt",
+                "copyGameLinkText": "Silteme",
+                "copyGameLinkCopied": "Kóshirildi",
+                "viewSettings": "Kórinis sazlawları",
+                "questionsLoadError": "Sorawlar tayar emes. Qaytadan urınıp kóriń.",
+                "resultSaveFailed": "Oyin nátiyjesi saqlanbadı.",
+                "resultSaveBlocked": "Oyin nátiyjesi saqlanbadı.",
+                "resultSaving": "Saqlanbaqta…",
+                "resultEarlierFailed": "Aldıńǵı oyin nátiyjesi saqlanbadı.",
+                "questionsMissing": "Sorawlar tabılmadı",
+                "questionPlaceholder": "Soraw...",
+                "answerPlaceholder": "Juwaptı kiritiń",
+                "teamNameLengthHint": "Komanda atı 3 ten 20 ǵa shekem belgiden ibarat bolsın.",
+                "devToolsWarning": "Dástúrlewshi quralları anıqlandı! Oyin toqtatıldı.",
+                "countdown": { "1": "1", "2": "2", "3": "3", "go": "Baslandı!" }
+            }
+        };
+        window.__TUG_DEMO_I18N__ = {
+            "kaa": {
+                "demoAboutTitle": "Matematika demo oyını haqqında",
+                "demoAboutLead": "Arifmetikalıq ameller, logikalıq shınıǵıwlar hám sanlardı salıstırıw boyınsha demo oyın.",
+                "demoAboutMeta": "Kórsetilgen úlgi sorawlar: 0 dana. Sorawlar tili: KAA.",
+                "demoAboutSamples": "Sorawlardan úlgiler"
+            }
+        };
+    </script>
+</head>
+<body data-game-mode="math">
+    <div hidden>
+        <template data-icon-template="music"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.25 17.25V5.75L19.25 3.75V15.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6.75 20.25C8.13071 20.25 9.25 19.1307 9.25 17.75C9.25 16.3693 8.13071 15.25 6.75 15.25C5.36929 15.25 4.25 16.3693 4.25 17.75C4.25 19.1307 5.36929 20.25 6.75 20.25Z" stroke="currentColor" stroke-width="1.7"></path><path d="M16.75 18.25C18.1307 18.25 19.25 17.1307 19.25 15.75C19.25 14.3693 18.1307 13.25 16.75 13.25C15.3693 13.25 14.25 14.3693 14.25 15.75C14.25 17.1307 15.3693 18.25 16.75 18.25Z" stroke="currentColor" stroke-width="1.7"></path><path d="M9.25 9.25L19.25 7.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg></template>
+        <template data-icon-template="x"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 6.75L17.25 17.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path><path d="M17.25 6.75L6.75 17.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></template>
+        <template data-icon-template="check"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></template>
+        <template data-icon-template="volume-high"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.75 4.75L7 9H4.75C4.19772 9 3.75 9.44772 3.75 10V14C3.75 14.5523 4.19772 15 4.75 15H7L11.75 19.25V4.75Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path><path d="M15.5 9.25C16.25 10 16.6 10.95 16.6 12C16.6 13.05 16.25 14 15.5 14.75" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path><path d="M18 6.75C19.4 8.15 20.1 9.95 20.1 12C20.1 14.05 19.4 15.85 18 17.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg></template>
+        <template data-icon-template="play"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.75 5.75L18.25 12L8.75 18.25V5.75Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path></svg></template>
+        <template data-icon-template="pause"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.25 5.75V18.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path><path d="M14.75 5.75V18.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg></template>
+    </div>
+
+    <audio id="backgroundMusic" src="qaraqalpaq_audio.mp3" loop preload="none"></audio>
+
+    <!-- Modal dialog for setup -->
+    <div id="startScreen" class="modal-overlay" aria-hidden="false">
+        <div class="modal-content start-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+            <h2 id="modalTitle">Komandalardı tayarlaw</h2>
+
+            <div class="setup-stepper" id="setupStepper" aria-label="Sazlaw basqıshları">
+                <div class="stepper-item active" data-step="0">
+                    <div class="stepper-dot">
+                        <span class="stepper-number">1</span>
+                        <span class="stepper-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                    </div>
+                    <div class="stepper-label" id="stepPrimary">Waqıt</div>
+                </div>
+                <div class="stepper-line" data-step="1" aria-hidden="true"></div>
+                <div class="stepper-item" data-step="1">
+                    <div class="stepper-dot">
+                        <span class="stepper-number">2</span>
+                        <span class="stepper-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                    </div>
+                    <div class="stepper-label" id="stepSecondary">Ameller</div>
+                </div>
+                <div class="stepper-line" data-step="2" aria-hidden="true"></div>
+                <div class="stepper-item" data-step="2">
+                    <div class="stepper-dot">
+                        <span class="stepper-number">3</span>
+                        <span class="stepper-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                    </div>
+                    <div class="stepper-label" id="stepTertiary">Sanlar</div>
+                </div>
+                <div class="stepper-line" data-step="3" aria-hidden="true"></div>
+                <div class="stepper-item" data-step="3">
+                    <div class="stepper-dot">
+                        <span class="stepper-number">4</span>
+                        <span class="stepper-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                    </div>
+                    <div class="stepper-label" id="stepTeams">Komandalar</div>
+                </div>
+            </div>
+
+            <div class="setup-steps" id="setupSteps">
+                <!-- STEP 1: Time -->
+                <section class="setup-step active" data-step="0">
+                    <div class="setup-mode-panel" data-mode="all">
+                        <h3 id="timeSelectLabel">Oyin waqtı</h3>
+                        <div class="difficulty-buttons" role="group" aria-labelledby="timeSelectLabel">
+                            <button type="button" class="difficulty-btn time-btn active" data-time="60">
+                                <span class="setup-card-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.75" stroke="currentColor" stroke-width="1.7"></circle><path d="M12 7.5V12L15 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+                                <span id="time1Text">1 minut</span>
+                            </button>
+                            <button type="button" class="difficulty-btn time-btn" data-time="180">
+                                <span class="setup-card-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.75" stroke="currentColor" stroke-width="1.7"></circle><path d="M12 7.5V12L15 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+                                <span id="time3Text">3 minut</span>
+                            </button>
+                            <button type="button" class="difficulty-btn time-btn" data-time="300">
+                                <span class="setup-card-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.75" stroke="currentColor" stroke-width="1.7"></circle><path d="M12 7.5V12L15 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+                                <span id="time5Text">5 minut</span>
+                            </button>
+                            <button type="button" class="difficulty-btn time-btn" data-time="600">
+                                <span class="setup-card-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.75" stroke="currentColor" stroke-width="1.7"></circle><path d="M12 7.5V12L15 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+                                <span id="time10Text">10 minut</span>
+                            </button>
+                            <button type="button" class="difficulty-btn time-btn difficulty-btn--infinite" data-time="0">
+                                <span class="setup-card-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7.75 15.25C5.95507 15.25 4.5 13.7949 4.5 12C4.5 10.2051 5.95507 8.75 7.75 8.75C9.15 8.75 10.18 9.55 11.25 10.88L12.75 13.12C13.82 14.45 14.85 15.25 16.25 15.25C18.0449 15.25 19.5 13.7949 19.5 12C19.5 10.2051 18.0449 8.75 16.25 8.75C14.85 8.75 13.82 9.55 12.75 10.88L11.25 13.12C10.18 14.45 9.15 15.25 7.75 15.25Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                <span id="timeInfiniteText">Sheksiz</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- STEP 2: Operations -->
+                <section class="setup-step" data-step="1">
+                    <div class="setup-mode-panel" data-mode="math">
+                        <h3 id="operationLabel">Ameller</h3>
+                        <p class="setup-hint" id="operationHint">Bir yamasa bir neshe ameldi saylań</p>
+                        <div class="operation-buttons" role="group" aria-labelledby="operationLabel">
+                            <button type="button" class="operation-btn active" data-op="+">
+                                <span class="op-symbol">+</span>
+                                <span class="op-text" id="opAddText">Qosıw</span>
+                                <span class="setup-card-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                            </button>
+                            <button type="button" class="operation-btn" data-op="-">
+                                <span class="op-symbol">&minus;</span>
+                                <span class="op-text" id="opSubText">Alıw</span>
+                                <span class="setup-card-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                            </button>
+                            <button type="button" class="operation-btn" data-op="*">
+                                <span class="op-symbol">&times;</span>
+                                <span class="op-text" id="opMulText">Kóbeytiw</span>
+                                <span class="setup-card-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                            </button>
+                            <button type="button" class="operation-btn" data-op="/">
+                                <span class="op-symbol">&divide;</span>
+                                <span class="op-text" id="opDivText">Bóliw</span>
+                                <span class="setup-card-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                            </button>
+                            <button type="button" class="operation-btn operation-btn--compare" data-op="compare">
+                                <span class="op-symbol">&lt;&gt;</span>
+                                <span class="op-text" id="opCompareText">Salıstırıw</span>
+                                <span class="setup-card-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- STEP 3: Digits -->
+                <section class="setup-step" data-step="2">
+                    <div class="setup-mode-panel" data-mode="math">
+                        <div class="difficulty-selector">
+                            <h3 id="digitSelectLabel">Sanlardıń xanasın saylań</h3>
+                            <p class="setup-hint" id="digitSelectHint">Sorawlarda qollanılatuǵın sanlar neshe xanalı bolsın?</p>
+                            <div class="difficulty-buttons difficulty-buttons--digits">
+                                <button type="button" class="difficulty-btn digit-btn active" data-digit="1">
+                                    <span class="setup-card-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                                    <span class="digit-range" id="digit1Range">0–9</span>
+                                    <span class="digit-label" id="digit1Text">1 xanalı sanlar</span>
+                                </button>
+                                <button type="button" class="difficulty-btn digit-btn" data-digit="2">
+                                    <span class="setup-card-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                                    <span class="digit-range" id="digit2Range">10–99</span>
+                                    <span class="digit-label" id="digit2Text">2 xanalı sanlar</span>
+                                </button>
+                                <button type="button" class="difficulty-btn digit-btn" data-digit="3">
+                                    <span class="setup-card-check" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                                    <span class="digit-range" id="digit3Range">100–999</span>
+                                    <span class="digit-label" id="digit3Text">3 xanalı sanlar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- STEP 4: Teams -->
+                <section class="setup-step" data-step="3">
+                    <div class="setup-mode-panel" data-mode="math">
+                        <div class="team-setup">
+                            <div class="team-box team-left">
+                                <div class="team-box__top">
+                                    <div class="team-icon"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8.5" r="3" stroke="currentColor" stroke-width="1.7"></circle><path d="M3.75 18.5C3.75 15.6 6.1 13.75 9 13.75C11.9 13.75 14.25 15.6 14.25 18.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path><path d="M16 6.1C17.4 6.5 18.4 7.8 18.4 9.3C18.4 10.8 17.4 12.1 16 12.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path><path d="M17 14C19.1 14.5 20.25 16.1 20.25 18.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg></div>
+                                    <span class="team-color-dot" aria-hidden="true"></span>
+                                </div>
+                                <h3 id="team1LabelMath">1-komanda</h3>
+                                <input type="text" id="teamLeftNameMath" placeholder="Komanda atın kiritiń" maxlength="20" minlength="3" autocomplete="off" aria-labelledby="team1LabelMath">
+                            </div>
+
+                            <div class="vs-divider"><span>VS</span></div>
+
+                            <div class="team-box team-right">
+                                <div class="team-box__top">
+                                    <div class="team-icon"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8.5" r="3" stroke="currentColor" stroke-width="1.7"></circle><path d="M3.75 18.5C3.75 15.6 6.1 13.75 9 13.75C11.9 13.75 14.25 15.6 14.25 18.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path><path d="M16 6.1C17.4 6.5 18.4 7.8 18.4 9.3C18.4 10.8 17.4 12.1 16 12.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path><path d="M17 14C19.1 14.5 20.25 16.1 20.25 18.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg></div>
+                                    <span class="team-color-dot" aria-hidden="true"></span>
+                                </div>
+                                <h3 id="team2LabelMath">2-komanda</h3>
+                                <input type="text" id="teamRightNameMath" placeholder="Komanda atın kiritiń" maxlength="20" minlength="3" autocomplete="off" aria-labelledby="team2LabelMath">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <p class="setup-status-hint" id="setupStatusHint" hidden aria-live="polite"></p>
+
+            <div class="setup-nav">
+                <button type="button" id="setupBackBtn" class="secondary-btn" disabled>
+                    <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14.75 6.5L9.25 12L14.75 17.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <span id="backBtnText">Artqa</span>
+                </button>
+                <button type="button" id="setupNextBtn" class="primary-btn nav-btn">
+                    <span id="nextBtnText">Keyingi</span>
+                    <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12H18.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13 6.75L18.25 12L13 17.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </button>
+                <button id="startGameBtn" class="primary-btn nav-btn" type="button" style="display:none;">
+                    <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8.75 5.75L18.25 12L8.75 18.25V5.75Z" fill="currentColor"></path></svg>
+                    <span id="startBtnText">Baslaw</span>
+                </button>
+            </div>
+
+            <section class="demo-about" aria-labelledby="demoAboutTitle">
+                <h3 id="demoAboutTitle" class="demo-about__title">Matematika demo oyını haqqında</h3>
+                <p id="demoAboutLead" class="demo-about__lead">Arifmetikalıq ameller, logikalıq shınıǵıwlar hám sanlardı salıstırıw boyınsha demo oyın.</p>
+            </section>
+        </div>
+    </div>
+
+    <div id="countdown" class="countdown-overlay"></div>
+
+    <header class="game-play-topbar">
+        <h1 class="sr-only">Matematika</h1>
+        <div class="game-play-topbar__start">
+            <div class="topbar-team topbar-team--left">
+                <h2 class="topbar-team__name" id="leftTeamHeader">Kók komanda</h2>
+                <span class="score-result" id="leftResultChip" role="img" aria-label="Jeńimpaz" title="Jeńimpaz" hidden>
+                    <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7.25 4.75H16.75V10C16.75 12.6234 14.6234 14.75 12 14.75C9.37665 14.75 7.25 12.6234 7.25 10V4.75Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path><path d="M7.25 6.75H5C4.31 6.75 3.75 7.31 3.75 8C3.75 9.79 5.21 11.25 7 11.25H7.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16.75 6.75H19C19.69 6.75 20.25 7.31 20.25 8C20.25 9.79 18.79 11.25 17 11.25H16.75" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 14.75V17.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path><path d="M8.25 19.25H15.75" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+                    <span id="leftResultText"></span>
+                </span>
+                <span class="score-badge" id="leftScore">0</span>
+            </div>
+        </div>
+
+        <a href="#" class="game-play-topbar__brand" aria-label="Arqan tartısıw" title="Arqan tartısıw">
+            <picture class="game-play-topbar__logo game-play-topbar__logo--light">
+                <img src="images/arqan-tartisiw-b.svg" alt="Arqan tartısıw" width="260" height="40" fetchpriority="high">
+            </picture>
+            <picture class="game-play-topbar__logo game-play-topbar__logo--dark">
+                <img src="images/arqan-tartisiw-w.svg" alt="Arqan tartısıw" width="260" height="40">
+            </picture>
+        </a>
+
+        <div class="game-play-topbar__end">
+            <div class="topbar-team topbar-team--right">
+                <span class="score-badge" id="rightScore">0</span>
+                <span class="score-result" id="rightResultChip" role="img" aria-label="Jeńimpaz" title="Jeńimpaz" hidden>
+                    <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7.25 4.75H16.75V10C16.75 12.6234 14.6234 14.75 12 14.75C9.37665 14.75 7.25 12.6234 7.25 10V4.75Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path><path d="M7.25 6.75H5C4.31 6.75 3.75 7.31 3.75 8C3.75 9.79 5.21 11.25 7 11.25H7.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16.75 6.75H19C19.69 6.75 20.25 7.31 20.25 8C20.25 9.79 18.79 11.25 17 11.25H16.75" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 14.75V17.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path><path d="M8.25 19.25H15.75" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+                    <span id="rightResultText"></span>
+                </span>
+                <h2 class="topbar-team__name" id="rightTeamHeader">Qızıl komanda</h2>
+            </div>
+        </div>
+    </header>
+
+    <main class="game-shell">
+        <div class="game-stage" id="gameStage">
+            <div class="game-board" id="gameBoard">
+                <!-- LEFT TEAM -->
+                <div class="calculator-panel panel-left">
+                    <div class="problem-display" id="leftProblem">
+                        <span id="leftProblemText">Soraw...</span>
+                        <img id="leftProblemImage" class="problem-image" src="" alt="" style="display:none;" loading="lazy">
+                    </div>
+                    <div class="quiz-keypad" id="leftQuizKeypad" aria-label="Answer options"></div>
+                    <div class="math-answer-display is-empty" id="leftMathAnswerDisplay" hidden></div>
+                    <div class="math-keypad" id="leftMathKeypad" hidden aria-label="Math keypad">
+                        <button class="key-btn" data-side="left" data-value="1" type="button">1</button>
+                        <button class="key-btn" data-side="left" data-value="2" type="button">2</button>
+                        <button class="key-btn" data-side="left" data-value="3" type="button">3</button>
+                        <button class="key-btn" data-side="left" data-value="4" type="button">4</button>
+                        <button class="key-btn" data-side="left" data-value="5" type="button">5</button>
+                        <button class="key-btn" data-side="left" data-value="6" type="button">6</button>
+                        <button class="key-btn" data-side="left" data-value="7" type="button">7</button>
+                        <button class="key-btn" data-side="left" data-value="8" type="button">8</button>
+                        <button class="key-btn" data-side="left" data-value="9" type="button">9</button>
+                        <button class="key-btn key-clear" data-side="left" data-action="clear" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6.75 6.75L17.25 17.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path><path d="M17.25 6.75L6.75 17.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button>
+                        <button class="key-btn" data-side="left" data-value="0" type="button">0</button>
+                        <button class="key-btn key-submit" data-side="left" data-action="submit" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+                    </div>
+                    <div class="panel-result" id="leftPanelResult" hidden aria-live="polite">
+                        <strong class="panel-result__team" id="leftPanelResultTeam"></strong>
+                        <span class="panel-result__status" id="leftPanelResultStatus"></span>
+                    </div>
+                    <div class="compare-keypad" id="leftCompareKeypad" hidden aria-label="Compare options">
+                        <button class="compare-btn" data-side="left" data-compare="<" type="button">&lt;</button>
+                        <button class="compare-btn" data-side="left" data-compare="=" type="button">=</button>
+                        <button class="compare-btn" data-side="left" data-compare=">" type="button">&gt;</button>
+                    </div>
+                </div>
+
+                <!-- ARENA -->
+                <div class="arena-container">
+                    <div class="a11y-live" id="gameA11yStatus" role="status" aria-live="polite"></div>
+                    <div class="timer-display">
+                        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.75" stroke="currentColor" stroke-width="1.7"></circle><path d="M12 7.5V12L15 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+                        <span id="gameTimer">00:00</span>
+                    </div>
+
+                    <div class="arena">
+                        <div class="center-line"></div>
+                        <div class="rope-container" id="ropeContainer">
+                            <video id="ropeVideo" autoplay loop muted playsinline>
+                                <source src="main.43ffad29.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div id="win-video" class="win-video-wrap" style="display:none;" aria-hidden="true">
+                            <video id="blueWinVideo" class="win-video" style="display:none;" preload="none" loop muted playsinline>
+                                <source src="win_blue.31e83dac.mp4" type="video/mp4">
+                            </video>
+                            <video id="redWinVideo" class="win-video" style="display:none;" preload="none" loop muted playsinline>
+                                <source src="win_red.4adea0fc.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT TEAM -->
+                <div class="calculator-panel panel-right">
+                    <div class="problem-display" id="rightProblem">
+                        <span id="rightProblemText">Soraw...</span>
+                        <img id="rightProblemImage" class="problem-image" src="" alt="" style="display:none;" loading="lazy">
+                    </div>
+                    <div class="quiz-keypad" id="rightQuizKeypad" aria-label="Answer options"></div>
+                    <div class="math-answer-display is-empty" id="rightMathAnswerDisplay" hidden></div>
+                    <div class="math-keypad" id="rightMathKeypad" hidden aria-label="Math keypad">
+                        <button class="key-btn" data-side="right" data-value="1" type="button">1</button>
+                        <button class="key-btn" data-side="right" data-value="2" type="button">2</button>
+                        <button class="key-btn" data-side="right" data-value="3" type="button">3</button>
+                        <button class="key-btn" data-side="right" data-value="4" type="button">4</button>
+                        <button class="key-btn" data-side="right" data-value="5" type="button">5</button>
+                        <button class="key-btn" data-side="right" data-value="6" type="button">6</button>
+                        <button class="key-btn" data-side="right" data-value="7" type="button">7</button>
+                        <button class="key-btn" data-side="right" data-value="8" type="button">8</button>
+                        <button class="key-btn" data-side="right" data-value="9" type="button">9</button>
+                        <button class="key-btn key-clear" data-side="right" data-action="clear" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6.75 6.75L17.25 17.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path><path d="M17.25 6.75L6.75 17.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button>
+                        <button class="key-btn" data-side="right" data-value="0" type="button">0</button>
+                        <button class="key-btn key-submit" data-side="right" data-action="submit" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+                    </div>
+                    <div class="panel-result" id="rightPanelResult" hidden aria-live="polite">
+                        <strong class="panel-result__team" id="rightPanelResultTeam"></strong>
+                        <span class="panel-result__status" id="rightPanelResultStatus"></span>
+                    </div>
+                    <div class="compare-keypad" id="rightCompareKeypad" hidden aria-label="Compare options">
+                        <button class="compare-btn" data-side="right" data-compare="<" type="button">&lt;</button>
+                        <button class="compare-btn" data-side="right" data-compare="=" type="button">=</button>
+                        <button class="compare-btn" data-side="right" data-compare=">" type="button">&gt;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WINNER DISPLAY -->
+        <div id="winnerDisplay" class="winner-overlay" aria-live="polite">
+            <div class="winner-card">
+                <div class="winner-card__shell">
+                    <div class="winner-team-grid">
+                        <div class="winner-card__main">
+                            <div class="winner-card__hero">
+                                <div class="trophy-animation">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7.25 4.75H16.75V10C16.75 12.6234 14.6234 14.75 12 14.75C9.37665 14.75 7.25 12.6234 7.25 10V4.75Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path><path d="M7.25 6.75H5C4.31 6.75 3.75 7.31 3.75 8C3.75 9.79 5.21 11.25 7 11.25H7.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16.75 6.75H19C19.69 6.75 20.25 7.31 20.25 8C20.25 9.79 18.79 11.25 17 11.25H16.75" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 14.75V17.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path><path d="M8.25 19.25H15.75" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+                                </div>
+                                <div class="winner-card__copy">
+                                    <span class="winner-eyebrow" id="winnerGameOverLabel">Oyin juwmaqlandı</span>
+                                    <h2 id="winnerName" class="winner-title"></h2>
+                                    <p id="winnerMessage" class="winner-message">Jeńimpaz boldı!</p>
+                                </div>
+                            </div>
+
+                            <div class="winner-scoreline" aria-live="polite">
+                                <div class="winner-scoreline__team winner-scoreline__team--left">
+                                    <span class="winner-scoreline__value" id="winnerScoreLeft">0</span>
+                                    <small class="winner-scoreline__label" id="winnerScoreLeftName">Kók komanda</small>
+                                </div>
+                                <span class="winner-scoreline__divider" aria-hidden="true">:</span>
+                                <div class="winner-scoreline__team winner-scoreline__team--right">
+                                    <span class="winner-scoreline__value" id="winnerScoreRight">0</span>
+                                    <small class="winner-scoreline__label" id="winnerScoreRightName">Qızıl komanda</small>
+                                </div>
+                            </div>
+
+                            <div class="winner-actions">
+                                <button class="primary-btn winner-action-btn" id="playAgainBtn" type="button">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18.5 9.5C17.65 6.98 15.28 5.25 12.5 5.25C9.02 5.25 6.25 8.02 6.25 11.5C6.25 14.98 9.02 17.75 12.5 17.75C14.48 17.75 16.23 16.84 17.38 15.43" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path><path d="M18.75 5.75V9.75H14.75" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    <span id="playAgainText">Qaytadan oynaw</span>
+                                </button>
+                                <button class="secondary-btn winner-action-btn" id="openSettingsBtn" type="button">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.7"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+                                    <span id="settingsBtnText">Qayta sazlaw</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- VIEW & AUDIO CONTROLS -->
+    <div class="view-controls is-collapsed" id="viewControls" aria-label="Kórinis basqarıwları">
+        <div class="view-group view-group--primary" aria-label="Navigation controls">
+            <button class="view-home-btn" id="homeBtn" type="button" aria-label="Bas bet">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.4697 3.46967C11.7626 3.17678 12.2374 3.17678 12.5303 3.46967L20.0303 10.9697C20.3232 11.2626 20.3232 11.7374 20.0303 12.0303C19.7374 12.3232 19.2626 12.3232 18.9697 12.0303L18.75 11.8107V19C18.75 20.2426 17.7426 21.25 16.5 21.25H14C13.5858 21.25 13.25 20.9142 13.25 20.5V16C13.25 15.5858 12.9142 15.25 12.5 15.25H11.5C11.0858 15.25 10.75 15.5858 10.75 16V20.5C10.75 20.9142 10.4142 21.25 10 21.25H7.5C6.25736 21.25 5.25 20.2426 5.25 19V11.8107L5.03033 12.0303C4.73744 12.3232 4.26256 12.3232 3.96967 12.0303C3.67678 11.7374 3.67678 11.2626 3.96967 10.9697L11.4697 3.46967Z"></path></svg>
+            </button>
+            <button class="view-settings-btn" id="viewSettingsBtn" type="button" aria-label="Sazlawlar" aria-expanded="false" aria-controls="viewControlsPanel">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3.5"></circle><path d="M19.14 12.94a7.5 7.5 0 0 0 0-1.88l2.03-1.58-1.92-3.32-2.39.96a7.5 7.5 0 0 0-1.62-.94L14.4 3.64h-3.84l-.86 2.54a7.5 7.5 0 0 0-1.62.94L5.69 6.16 3.77 9.48l2.03 1.58a7.5 7.5 0 0 0 0 1.88l-2.03 1.58 1.92 3.32 2.39-.96a7.5 7.5 0 0 0 1.62.94l.86 2.54h3.84l.86-2.54a7.5 7.5 0 0 0 1.62-.94l2.39.96 1.92-3.32-2.03-1.58z"></path></svg>
+            </button>
+        </div>
+
+        <!-- Language Selector (Single Language: Qaraqalpaqsha) -->
+        <div class="view-group view-group--language" style="display:none;" aria-hidden="true">
+            <div class="language-selector" id="languageSelector">
+                <button class="lang-toggle" id="langToggle" type="button" aria-label="Qaraqalpaqsha">
+                    <img id="langToggleFlag" src="images/kaa.svg" alt="kaa">
+                    <span id="langToggleText">QR</span>
+                </button>
+                <div class="lang-menu" id="langMenu">
+                    <button class="lang-btn is-active active" data-lang="kaa" data-short="QR" type="button">
+                        <span>Qaraqalpaqsha</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="view-controls-panel" id="viewControlsPanel" hidden>
+            <span class="view-divider" aria-hidden="true"></span>
+            <div class="view-group view-group--audio" id="audioControlsGroup" aria-label="Dawıs basqarıwları">
+                <button class="view-btn" id="audioToggleBtn" type="button" aria-label="Dawıstı óshiriw" aria-expanded="false" title="Dawıs">
+                    <svg class="audio-icon audio-icon--on" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.75 4.75L7 9H4.75V14H7L11.75 18.25V4.75Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path><path d="M15.5 9.25C16.25 10 16.6 10.95 16.6 12C16.6 13.05 16.25 14 15.5 14.75" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path><path d="M18 6.75C19.4 8.15 20.1 9.95 20.1 12C20.1 14.05 19.4 15.85 18 17.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+                    <svg class="audio-icon audio-icon--off" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.75 4.75L7 9H4.75V14H7L11.75 18.25V4.75Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path><path d="M15.75 10L20.25 14.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path><path d="M20.25 10L15.75 14.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+                </button>
+                <button class="view-btn audio-inline-item" id="volumeDownBtn" type="button" aria-label="Dawıs páseytiw" title="Páseytiw"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12H18.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button>
+                <span class="view-label view-label--audio audio-inline-item" id="volumeLabel">80%</span>
+                <button class="view-btn audio-inline-item" id="volumeUpBtn" type="button" aria-label="Dawıs kóteriw" title="Kóteriw"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5.75V18.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path><path d="M5.75 12H18.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button>
+            </div>
+
+            <span class="view-divider" aria-hidden="true"></span>
+            <div class="view-group view-group--zoom" id="zoomControlsGroup" aria-label="Masshtab">
+                <button class="view-btn" id="zoomOutBtn" type="button" aria-label="Kishireytiw" title="Kishireytiw"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5.75 12H18.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button>
+                <span class="view-label" id="zoomLabel">100%</span>
+                <button class="view-btn" id="zoomInBtn" type="button" aria-label="Úlkeytiw" title="Úlkeytiw"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5.75V18.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path><path d="M5.75 12H18.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button>
+                <button class="view-btn" id="fullscreenBtn" type="button" aria-label="Tolıq ekran" title="Tolıq ekran">
+                    <svg class="fullscreen-icon fullscreen-icon--enter" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9.25 4.75H4.75V9.25M14.75 4.75H19.25V9.25M19.25 14.75V19.25H14.75M9.25 19.25H4.75V14.75" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <svg class="fullscreen-icon fullscreen-icon--exit" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4.75 9.25H9.25V4.75M19.25 9.25H14.75V4.75M19.25 14.75H14.75V19.25M4.75 14.75H9.25V19.25" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </button>
+            </div>
+
+            <span class="view-divider" aria-hidden="true"></span>
+            <!-- Background Theme Picker -->
+            <div class="view-group view-group--background" aria-label="Fon">
+                <div class="game-bg-picker game-bg-picker--up" data-game-bg-picker>
+                    <button type="button" class="game-bg-trigger" data-game-bg-toggle aria-haspopup="dialog" aria-expanded="false" aria-controls="gameBgPanel" aria-label="Fon" title="Fon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><rect x="4.25" y="5.25" width="15.5" height="13.5" rx="2" stroke="currentColor" stroke-width="1.7" /><circle cx="9" cy="10" r="1.5" stroke="currentColor" stroke-width="1.7" /><path d="M5 16.5L9.5 12.5L13 15L16.25 12L19 15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                    </button>
+                    <div class="game-bg-panel" id="gameBgPanel" data-game-bg-panel role="dialog" aria-label="Fon" hidden>
+                        <p class="game-bg-panel__title">Fon</p>
+                        <div class="game-bg-swatches" role="group" aria-label="Fon">
+                            <button type="button" class="game-bg-swatch" data-game-bg-value="plain" aria-pressed="false" title="Ápiwayı">
+                                <span class="game-bg-swatch__preview" aria-hidden="true"></span>
+                                <span class="game-bg-swatch__label">Ápiwayı</span>
+                                <span class="game-bg-swatch__check" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            </button>
+                            <button type="button" class="game-bg-swatch" data-game-bg-value="classroom" style="--swatch: url('images/29b63230-6348-5dfe-9a39-1e0c3122e1cb.webp')" aria-pressed="false" title="Klass xanası">
+                                <span class="game-bg-swatch__preview" aria-hidden="true"></span>
+                                <span class="game-bg-swatch__label">Klass xanası</span>
+                                <span class="game-bg-swatch__check" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            </button>
+                            <button type="button" class="game-bg-swatch" data-game-bg-value="sky" style="--swatch: linear-gradient(135deg, #dbe7ff 0%, #eef2ff 50%, #d7e9ff 100%)" aria-pressed="false" title="Aspan">
+                                <span class="game-bg-swatch__preview" aria-hidden="true"></span>
+                                <span class="game-bg-swatch__label">Aspan</span>
+                                <span class="game-bg-swatch__check" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            </button>
+                            <button type="button" class="game-bg-swatch" data-game-bg-value="mint" style="--swatch: linear-gradient(135deg, #d8f3e3 0%, #eafaf0 50%, #d6f0ea 100%)" aria-pressed="false" title="Jalbız">
+                                <span class="game-bg-swatch__preview" aria-hidden="true"></span>
+                                <span class="game-bg-swatch__label">Jalbız</span>
+                                <span class="game-bg-swatch__check" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            </button>
+                            <button type="button" class="game-bg-swatch" data-game-bg-value="sunrise" style="--swatch: linear-gradient(135deg, #ffe6d6 0%, #fff2e8 50%, #ffe0e6 100%)" aria-pressed="false" title="Tań">
+                                <span class="game-bg-swatch__preview" aria-hidden="true"></span>
+                                <span class="game-bg-swatch__label">Tań</span>
+                                <span class="game-bg-swatch__check" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            </button>
+                            <button type="button" class="game-bg-swatch" data-game-bg-value="lavender" style="--swatch: linear-gradient(135deg, #e9e2ff 0%, #f3eeff 50%, #e6e0ff 100%)" aria-pressed="false" title="Lavanda">
+                                <span class="game-bg-swatch__preview" aria-hidden="true"></span>
+                                <span class="game-bg-swatch__label">Lavanda</span>
+                                <span class="game-bg-swatch__check" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            </button>
+                            <button type="button" class="game-bg-swatch" data-game-bg-value="slate" style="--swatch: linear-gradient(135deg, #eef1f6 0%, #f7f9fc 50%, #e9edf3 100%)" aria-pressed="false" title="Kúlreń">
+                                <span class="game-bg-swatch__preview" aria-hidden="true"></span>
+                                <span class="game-bg-swatch__label">Kúlreń</span>
+                                <span class="game-bg-swatch__check" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12" fill="none"><path d="M5.75 12.35L10.1 16.75L18.25 7.75" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Picker logic -->
+    <script>
+    (function () {
+        var root = document.querySelector('[data-game-bg-picker]');
+        if (!root) return;
+        var doc = document.documentElement;
+        var config = window.__GAME_BG__ || { ids: [], def: 'plain' };
+        var toggle = root.querySelector('[data-game-bg-toggle]');
+        var panel = root.querySelector('[data-game-bg-panel]');
+        var swatches = Array.prototype.slice.call(root.querySelectorAll('[data-game-bg-value]'));
+        var storageKey = 'edugames:game:background';
+
+        function currentId() {
+            var id = doc.getAttribute('data-game-bg');
+            return config.ids.indexOf(id) !== -1 ? id : config.def;
+        }
+        function mark(id) {
+            swatches.forEach(function (swatch) {
+                var on = swatch.getAttribute('data-game-bg-value') === id;
+                swatch.setAttribute('aria-pressed', on ? 'true' : 'false');
+                swatch.classList.toggle('is-selected', on);
+            });
+        }
+        function apply(id) {
+            if (config.ids.indexOf(id) === -1) id = config.def;
+            doc.setAttribute('data-game-bg', id);
+            if (id === 'plain') {
+                doc.removeAttribute('data-game-bg-active');
+            } else {
+                doc.setAttribute('data-game-bg-active', '');
+            }
+            try { localStorage.setItem(storageKey, id); } catch (e) {}
+            mark(id);
+        }
+        toggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            panel.hidden = !panel.hidden;
+            toggle.setAttribute('aria-expanded', !panel.hidden ? 'true' : 'false');
+        });
+        swatches.forEach(function (swatch) {
+            swatch.addEventListener('click', function () {
+                apply(swatch.getAttribute('data-game-bg-value'));
+            });
+        });
+        document.addEventListener('click', function (e) {
+            if (!root.contains(e.target)) {
+                panel.hidden = true;
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+        mark(currentId());
+    })();
+    </script>
+
+    <!-- Main Game Engine -->
+    <script src="game.js"></script>
+</body>
+</html>

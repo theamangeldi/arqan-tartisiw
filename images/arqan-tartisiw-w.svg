@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 40" width="260" height="40">
+  <defs>
+    <linearGradient id="brandGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+  </defs>
+  <!-- Rope icon / tug knot -->
+  <g transform="translate(4, 8)">
+    <circle cx="12" cy="12" r="10" fill="#0f172a" stroke="#38bdf8" stroke-width="2.2"/>
+    <path d="M 6 12 Q 12 6, 18 12" stroke="#38bdf8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M 6 12 Q 12 18, 18 12" stroke="#60a5fa" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="36" y="28" font-family="'Onest', system-ui, -apple-system, Segoe UI, Roboto, sans-serif" font-size="22" font-weight="800" fill="url(#brandGradDark)" letter-spacing="0.3">Arqan tartısıw</text>
+</svg>
